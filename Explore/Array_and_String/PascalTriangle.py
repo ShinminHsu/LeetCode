@@ -13,10 +13,10 @@ class Solution:
         
         for row in range(2, numRows):
             for col in range(1, row):
-                output[row] = output[row-1][col-1] + output[row-1][col]
+                output[row][col] = output[row-1][col-1] + output[row-1][col]
 
         return output
 
-numRows = 1
+numRows = int(input())
 s = Solution()
 print(s.generate(numRows))
