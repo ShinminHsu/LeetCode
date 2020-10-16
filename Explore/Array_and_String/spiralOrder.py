@@ -1,7 +1,7 @@
 class Solution:
     def spiralOrder(self, matrix):
         """
-        :parameters: matrix: List[List[int]]
+        :param matrix: List[List[int]]
         :return: List[int]
         """
         if not matrix: return []
