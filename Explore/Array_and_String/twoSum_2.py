@@ -8,5 +8,22 @@ class Solution:
         :param target: int
         :return: List[int]
         """
+        if not numbers:
+            return []
 
-        return
+        hash_table = {}
+        for i, num in enumerate(numbers):
+            
+            diff = target - num
+            if diff in hash_table:
+                return [hash_table[diff] + 1, i+ 1]
+
+            else:
+                hash_table[num] = i
+
+        return []
+
+numbers = [0,0]
+target = 0
+s = Solution()
+print(s.twoSum(numbers, target))
