@@ -17,13 +17,10 @@ class MyCircularQueue:
         """
         if self.isEmpty():
             self.head += 1
-        elif self.isFull():
+        if self.isFull():
             return False
 
-        if self.tail == self.capacity - 1:
-            self.tail = 0
-        else:
-            self.tail += 1
+        self.tail = (self.tail + 1) % self.capacity
         self.queue[self.tail] = value
 
         return True
@@ -37,13 +34,12 @@ class MyCircularQueue:
             return False
 
         self.queue[self.head] = None
+
         if self.head == self.tail:
             self.head = -1
             self.tail = -1
-        elif self.head == self.capacity - 1:
-            self.head = 0
         else:
-            self.head += 1
+            self.head = (self.head + 1) % self.capacity
         return True
 
     def Front(self) -> int:
@@ -72,7 +68,7 @@ class MyCircularQueue:
         Checks whether the circular queue is full or not.
         """
 
-        if ((self.tail - self.head) == self.capacity - 1) or (self.head - self.tail) == 1:
+        if (self.tail + 1) % self.capacity == self.head:
             return True
         else:
             return False
