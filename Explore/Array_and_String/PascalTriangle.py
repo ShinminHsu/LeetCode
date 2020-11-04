@@ -6,7 +6,7 @@ class Solution:
         """
         output = []
         for i in range(numRows):
-            output.append([1]*(i+1))
+            output.append([1]*(i+1))s
 
         if numRows <= 2:
             return output

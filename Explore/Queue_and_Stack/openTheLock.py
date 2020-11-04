@@ -12,16 +12,14 @@ class Solution:
             size = len(waiting)
             for _ in range(size):
                 code = waiting.pop(0)
+
                 if code in self.deadends:
                     continue
                 if code == target:
                     return depth
-
                 for new_code in self.checkCode(code):
                     waiting.append(new_code)
-
             depth += 1
-
         return -1
 
     def checkCode(self, code):
