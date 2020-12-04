@@ -8,29 +8,30 @@ class TreeNode:
 
 class Solution:
     def hasPathSum(self, root: TreeNode, sum: int) -> bool:
-        if not root or root.val > sum:
+        if not root:
             return False
+        
+        if (not root.left) and (not root.right) and (root.val == sum):
+            return True
 
         sum -= root.val
         self.queue = deque()
         self.checkLeftRight(root, sum)
 
         while self.queue:
-            curSum, node = self.queue.pop()
-
-            if node.val < curSum:
-                self.checkLeftRight(node, curSum - node.val)
-
-            elif (not node.left) and (not node.right) and (node.val == curSum):
+            node, curSum = self.queue.pop()
+            if (not node.left) and (not node.right) and (node.val == curSum):
                 return True
+            
+            self.checkLeftRight(node, curSum - node.val)
 
         return False
 
     def checkLeftRight(self, node, curSum):
-        if node.left <= curSum:
-            self.queue.append((curSum, node.left))
-        if node.right <= curSum:
-            self.queue.append((curSum, node.right))
+        if node.left:
+            self.queue.append((node.left, curSum))
+        if node.right:
+            self.queue.append((node.right
 
 
 
