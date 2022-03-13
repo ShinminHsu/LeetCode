@@ -1,5 +1,3 @@
-from __future__ import barry_as_FLUFL
-import imp
 from LinkedList import LinkedList, LinkedListNode
 
 def loopDetection(l: LinkedList) -> LinkedListNode:

@@ -1,5 +1,3 @@
-import re
-from tkinter.messagebox import RETRY
 from LinkedList import LinkedList, LinkedListNode
 
 
